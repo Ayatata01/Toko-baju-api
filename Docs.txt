@@ -1,0 +1,30 @@
+Berikut adalah ide proyek API yang dapat dibuat menggunakan Express dan MySQL untuk portofolio:
+
+Nama Proyek: "Online Shop API"
+
+Deskripsi: Proyek ini adalah sebuah API untuk toko online yang dapat digunakan untuk menampilkan daftar produk, menambahkan produk ke keranjang belanja, dan memproses pesanan.
+
+Fitur-fitur:
+
+Autentikasi pengguna menggunakan JSON Web Token (JWT).
+Daftar produk dapat diambil dari database MySQL dan ditampilkan sebagai daftar pada endpoint tertentu.
+Pengguna dapat menambahkan produk ke keranjang belanja dengan menyebutkan ID produk dan jumlah yang diinginkan.
+Pesanan dapat diproses dengan mencantumkan detail pesanan, seperti nama pengirim, alamat pengiriman, dan informasi pembayaran.
+Pesanan yang telah diproses akan tersimpan ke database MySQL dan dapat diakses melalui endpoint khusus.
+Teknologi yang digunakan:
+
+Express untuk membuat server dan mengatur routing endpoint.
+MySQL untuk menyimpan data produk dan pesanan.
+JSON Web Token (JWT) untuk autentikasi pengguna.
+Endpoint yang tersedia:
+
+/login: Endpoint untuk autentikasi pengguna dan mendapatkan token akses.
+/products: Endpoint untuk menampilkan daftar produk yang tersedia.
+/cart: Endpoint untuk menambahkan produk ke keranjang belanja.
+/order: Endpoint untuk memproses pesanan.
+Contoh penggunaan API:
+
+Untuk mengambil daftar produk, pengguna dapat mengirimkan permintaan GET ke endpoint /products.
+Untuk menambahkan produk ke keranjang belanja, pengguna dapat mengirimkan permintaan POST ke endpoint /cart dengan mengirimkan ID produk dan jumlah yang diinginkan dalam body request.
+Untuk memproses pesanan, pengguna harus terlebih dahulu melakukan autentikasi dengan mengirimkan permintaan POST ke endpoint /login dan menyertakan username dan password dalam body request. Setelah berhasil mendapatkan token akses, pengguna dapat mengirimkan permintaan POST ke endpoint /order dengan menyertakan detail pesanan dalam body request, seperti nama pengirim, alamat pengiriman, dan informasi pembayaran.
+Dengan proyek ini, pengembang dapat memperlihatkan kemampuan dalam membuat API menggunakan Express dan mengintegrasikannya dengan database MySQL untuk menyimpan data. Selain itu, proyek ini juga dapat membantu pengembang dalam memahami konsep autentikasi pengguna menggunakan JWT dan bagaimana cara memproses permintaan dari klien pada server menggunakan Express.
