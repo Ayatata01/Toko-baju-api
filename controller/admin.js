@@ -1,16 +1,18 @@
-const User = require("../models/user");
+const User = require("../models/admin");
 const Authentication = require("../helper/authentication");
 const bcrypt = require("bcrypt");
 const ERROR = require("../helper/error");
 
 exports.Login = async (req, res, next) => {
-  ERROR.Handler(req);
+  ERROR.Handler(req, res, next);
 
   const email = req.body.email;
   const password = req.body.password;
 
+  const id_user = await User.findOne({ email: email });
+
   const user = {
-    email: email,
+    id: id_user._id,
   };
 
   const token = Authentication.CreateToken(user);
@@ -35,10 +37,11 @@ exports.Login = async (req, res, next) => {
 };
 
 exports.Register = async (req, res, next) => {
-  ERROR.Handler(req);
+  ERROR.Handler(req, res, next);
 
   const username = req.body.username;
   const email = req.body.email;
+  const nama_toko = req.body.nama_toko;
   const password = req.body.password;
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -46,6 +49,7 @@ exports.Register = async (req, res, next) => {
   SaveData = new User({
     username: username,
     email: email,
+    nama_toko: nama_toko,
     password: hashedPassword,
   });
 

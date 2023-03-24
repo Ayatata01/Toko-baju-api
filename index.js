@@ -2,23 +2,35 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const authentication = require("./routers/authentication");
+const admin = require("./routers/admin");
+const product = require("./routers/product");
+const cart = require("./routers/cart");
+const order = require("./routers/order");
+const FILE = require("./helper/file");
+const path = require("path");
 require("dotenv");
-
-// DATABASE CONFIGURATION
-mongoose
-  .connect(``)
-  .then(() => {
-    console.log("successfully connected to database");
-  })
-  .catch((error) => {
-    console.log(error);
-  });
 
 // EXPRESS CONFIGURATION
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
+app.use(FILE.upload.single("image"));
+
+// CONFIGURATION FOR IMAGE URL SO CAN BE CALLED IN THE CLIENT
+app.use("/images", express.static(path.join(__dirname, "images")));
+
+// DATABASE CONFIGURATION
+mongoose
+  .connect(
+    `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@ac-csngidd-shard-00-00.j5ojhhb.mongodb.net:27017,ac-csngidd-shard-00-01.j5ojhhb.mongodb.net:27017,ac-csngidd-shard-00-02.j5ojhhb.mongodb.net:27017/?ssl=true&replicaSet=atlas-13nlcp-shard-0&authSource=admin&retryWrites=true&w=majority`
+  )
+  .then(() => {
+    console.log("successfully connected to database");
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 // CORS CONFIGURATION
 app.use((req, res, next) => {
@@ -34,27 +46,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app
-  .listen(port)
-  .then(() => {
-    console.log("listening on port " + port);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+app.listen(port, () => {
+  console.log("listening on port", port);
+});
 
 // ROUTER CONFIGURATION
 app.use("/authentication", authentication);
-
-//  GLOBAL ERROR CONFIGURATION
-app.use((error, req, res, next) => {
-  const status = error.errorStatus || 500;
-  const message = error.message;
-  const data = error.data;
-
-  res.status(status).json({
-    status: status,
-    message: message,
-    data: data,
-  });
-});
+app.use("/admin", admin);
+app.use("/product", product);
+app.use("/cart", cart);
+app.use("/order", order);

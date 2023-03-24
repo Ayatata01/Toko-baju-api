@@ -1,5 +1,5 @@
 const express = require("express");
-const controller = require("../controller/authentication");
+const controller = require("../controller/admin");
 const { body } = require("express-validator");
 
 const router = express.Router();
@@ -28,6 +28,10 @@ router.post(
       .withMessage("Username is required"),
     body("email")
       .isEmail()
+      .isLength({ min: 6 })
+      .withMessage("Email is required"),
+    body("nama_toko")
+      .isString()
       .isLength({ min: 6 })
       .withMessage("Email is required"),
     body("password")

@@ -2,18 +2,18 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const User = new Schema(
+const Order = new Schema(
   {
-    username: {
+    id_user: {
       type: String,
       required: true,
     },
-    email: {
+    id_product: {
       type: String,
       required: true,
     },
-    password: {
-      type: String,
+    is_paid: {
+      type: Boolean,
       required: true,
     },
   },
@@ -22,4 +22,4 @@ const User = new Schema(
   }
 );
 
-module.exports = mongoose.model("User", User);
+module.exports = mongoose.model("Order", Order);
