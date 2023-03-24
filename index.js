@@ -51,8 +51,13 @@ app.listen(port, () => {
 });
 
 // ROUTER CONFIGURATION
+app.get("/", (req, res, next) => {
+  res.json({ message: "Toko Baju API" });
+});
 app.use("/authentication", authentication);
 app.use("/admin", admin);
 app.use("/product", product);
 app.use("/cart", cart);
 app.use("/order", order);
+
+module.exports = app;
