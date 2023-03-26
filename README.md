@@ -69,7 +69,7 @@ body :{
 
 ##### 4. USER REGISTER
 ````http
- POST http://localhost:5000/authentication/login
+POST http://localhost:5000/authentication/login
  ````
  ````
  body: {
