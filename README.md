@@ -179,7 +179,7 @@ AUTHORIZATION bearer token
 ````
 
 ##### 14. CART
- menghapus cart berdasrakan id cart
+ menghapus cart berdasarkan id cart
 ````http
 DELETE http://localhost:5000/cart/ID_CART
  ````
