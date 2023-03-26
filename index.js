@@ -23,7 +23,7 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 // DATABASE CONFIGURATION
 mongoose
   .connect(
-    `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@ac-csngidd-shard-00-00.j5ojhhb.mongodb.net:27017,ac-csngidd-shard-00-01.j5ojhhb.mongodb.net:27017,ac-csngidd-shard-00-02.j5ojhhb.mongodb.net:27017/?ssl=true&replicaSet=atlas-13nlcp-shard-0&authSource=admin&retryWrites=true&w=majority`
+    `(mongodb url)`
   )
   .then(() => {
     console.log("successfully connected to database");
