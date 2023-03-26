@@ -31,7 +31,7 @@ rubah mongodb link menjadi link untuk koneksi ke database mongodb
 Authentication terbagi 2 admin dan user, admin sebagai pengelola toko dan user sebagai pembeli
 
 ##### 1. ADMIN LOGIN
-##### GET http://localhost:5000/admin/login
+````http GET http://localhost:5000/admin/login````
 ##### body :{
 #####  email: 'seco@gmail.com',
 #####  password: 123
