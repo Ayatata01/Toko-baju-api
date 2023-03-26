@@ -23,7 +23,7 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 // DATABASE CONFIGURATION
 mongoose
   .connect(
-    `(mongodb url)`
+    `(mongodb link)`
   )
   .then(() => {
     console.log("successfully connected to database");
