@@ -32,7 +32,7 @@ Authentication terbagi 2 admin dan user, admin sebagai pengelola toko dan user s
 
 ##### 1. ADMIN LOGIN
 ````http 
-    GET http://localhost:5000/admin/login
+GET http://localhost:5000/admin/login
 ````
 
 ````
@@ -68,7 +68,9 @@ body :{
 ````
 
 ##### 4. USER REGISTER
+````http
  POST http://localhost:5000/authentication/login
+ ````
  ````
  body: {
     "username" : "secoseco",
