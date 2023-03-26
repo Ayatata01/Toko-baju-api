@@ -35,110 +35,112 @@ Authentication terbagi 2 admin dan user, admin sebagai pengelola toko dan user s
 ##### body :{
 #####  email: 'seco@gmail.com',
 #####  password: 123
-#####}
-response : Json Web Token (jwt)
-
-2. ADMIN REGISTER
-POST http://localhost:5000/admin/register
-body: {
-    "username" : "secoseco",
-    "email" : "seco@gmail.com",
-    "nama_toko" : "seco store",
-    "password" : "seco1234567"
 }
+##### response : Json Web Token (jwt)
 
-3. USERLOGIN
-GET http://localhost:5000/authentication/login
-body :{
-  email: 'seco@gmail.com',
-  password: 123
-}
-response : Json Web Token (jwt)
+##### 2. ADMIN REGISTER
+##### POST http://localhost:5000/admin/register
+##### body: {
+#####    "username" : "secoseco",
+#####    "email" : "seco@gmail.com",
+#####    "nama_toko" : "seco store",
+#####    "password" : "seco1234567"
+##### }
+
+##### 3. USERLOGIN
+##### GET http://localhost:5000/authentication/login
+##### body :{
+#####  email: 'seco@gmail.com',
+#####  password: 123
+##### }
+##### response : Json Web Token (jwt)
 
 
-4. USER REGISTER
-POST http://localhost:5000/authentication/login
-body: {
-    "username" : "secoseco",
-    "email" : "seco@gmail.com",
-    "nama_toko" : "seco store",
-    "password" : "seco1234567"
-}
+##### 4. USER REGISTER
+##### POST http://localhost:5000/authentication/login
+##### body: {
+#####    "username" : "secoseco",
+#####    "email" : "seco@gmail.com",
+#####    "nama_toko" : "seco store",
+#####    "password" : "seco1234567"
+##### }
 
-5. PRODUCT ADMIN
-Menambah product baru, gunakan token admin pada authorization
-POST http://localhost:5000/product
-AUTHORIZATION bearer token
-body:{
-  nama_produk : '',
-  image: 'image file',
-  jumlah : number,
-  harga_satuan: number,
-  deskripsi: ''
-}
+##### 5. PRODUCT ADMIN
+##### Menambah product baru, gunakan token admin pada authorization
+##### POST http://localhost:5000/product
+##### AUTHORIZATION bearer token
+##### body:{
+#####  nama_produk : '',
+#####  image: 'image file',
+#####  jumlah : number,
+#####  harga_satuan: number,
+#####  deskripsi: ''
+##### }
 
-6. PRODUCT ADMIN
-Mendapatkan semua data product milik admin gunakan token admin pada authorization
-GET http://localhost:5000/product
-AUTHORIZATION bearer token
+##### 6. PRODUCT ADMIN
+##### Mendapatkan semua data product milik admin gunakan token admin pada authorization
+##### GET http://localhost:5000/product
+##### AUTHORIZATION bearer token
 
-7. PRODUCT ADMIN
-Mengedit data product admin, gunakan token admin pada authorization
-PUT http://localhost:5000/product/ID_PRODUCT
-AUTHORIZATION bearer token
-body:{
-  nama_produk : '',
-  image: 'image file',
-  jumlah : number,
-  harga_satuan: number,
-  deskripsi: ''
-}
+##### 7. PRODUCT ADMIN
+##### Mengedit data product admin, gunakan token admin pada authorization
+##### PUT http://localhost:5000/product/ID_PRODUCT
+##### AUTHORIZATION bearer token
+##### body:{
+#####  nama_produk : '',
+#####  image: 'image file',
+#####  jumlah : number,
+#####  harga_satuan: number,
+#####  deskripsi: ''
+##### }
 
-8. PRODUCT ADMIN
-Mengapus data bersarkan id product
-DELETE http://localhost:5000/product/ID_PRODUCT
-AUTHORIZATION bearer token
+##### 8. PRODUCT ADMIN
+##### Mengapus data bersarkan id product
+##### DELETE http://localhost:5000/product/ID_PRODUCT
+##### AUTHORIZATION bearer token
 
-9. PRODUCT ALL
-Mendapatkan semua data product toko
-GET http://localhost:5000/product/all
-AUTHORIZATION bearer token
+##### 9. PRODUCT ALL
+##### Mendapatkan semua data product toko
+##### GET http://localhost:5000/product/all
+##### AUTHORIZATION bearer token
 
-10 PRODUCT BY QUERY PARAMETER
-Mendapatkan semua data product toko dengan query parameter
-GET http://localhost:5000/product/all?page=NOMOR_PAGE&perPage=JUMLAH DATA SETIAP PAGE
-AUTHORIZATION bearer token
+##### 10 PRODUCT BY QUERY PARAMETER
+##### Mendapatkan semua data product toko dengan query parameter
+##### GET http://localhost:5000/product/all?page=NOMOR_PAGE&perPage=JUMLAH DATA SETIAP PAGE
+##### AUTHORIZATION bearer token
 
-11. CART
-Mendapatkan data cart, gunakan token user pada bagian authorization
-GET http://localhost:5000/cart
-AUTHORIZATION bearer token
+##### 11. CART
+##### Mendapatkan data cart, gunakan token user pada bagian authorization
+##### GET http://localhost:5000/cart
+##### AUTHORIZATION bearer token
 
-12. CART
-Menambah data cart baru
-POST http://localhost:5000/cart
-AUTHORIZATION bearer token
-body:{
-    "id_product" : "641d0f5f3a7e6899192fdec1",
-    "is_paid" : false,
-    "jumlah" : 3
-}
+##### 12. CART
+##### Menambah data cart baru
+##### POST http://localhost:5000/cart
+##### AUTHORIZATION bearer token
+##### body:{
+#####    "id_product" : "641d0f5f3a7e6899192fdec1",
+#####    "is_paid" : false,
+#####    "jumlah" : 3
+##### }
 
-13. CART
-Mengedit cart jika is_paid:true, pesanan telah dibayar, gunakan token user pada bagian authorization
-PUT http://localhost:5000/cart/ID_CART
-AUTHORIZATION bearer token
-body :{
-    "is_paid" : true,
-    "jumlah" : 4
-}
+##### 13. CART
+##### Mengedit cart jika is_paid:true, pesanan telah dibayar, gunakan token user pada bagian authorization
+##### PUT http://localhost:5000/cart/ID_CART
+##### AUTHORIZATION bearer token
+##### body :{
+#####    "is_paid" : true,
+#####    "jumlah" : 4
+##### }
 
-14. CART
-menghapus cart berdasrakan id cart
-DELETE http://localhost:5000/cart/ID_CART
-AUTHORIZATION bearer token
+##### 14. CART
+##### menghapus cart berdasrakan id cart
+##### DELETE http://localhost:5000/cart/ID_CART
+##### AUTHORIZATION bearer token
 
-15. ORDER HISTORY
-Mendapatkan semua data pembelian yang telah dilakukan user, gunakan token user pada bagian authorization
-GET http://localhost:5000/order
-AUTHORIZATION bearer token
+##### 15. ORDER HISTORY
+##### Mendapatkan semua data pembelian yang telah dilakukan user, gunakan token user pada bagian authorization
+##### GET http://localhost:5000/order
+##### AUTHORIZATION bearer token
+
+AUTHOR : Yoga Rizya Pratama (yogarizya.pratama@gmail.com)
