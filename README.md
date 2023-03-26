@@ -143,4 +143,4 @@ Authentication terbagi 2 admin dan user, admin sebagai pengelola toko dan user s
 ##### GET http://localhost:5000/order
 ##### AUTHORIZATION bearer token
 
-AUTHOR : Yoga Rizya Pratama (yogarizya.pratama@gmail.com)
+# AUTHOR : Yoga Rizya Pratama (yogarizya.pratama@gmail.com)
